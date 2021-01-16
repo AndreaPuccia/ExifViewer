@@ -1,1 +1,15 @@
-<div>Hello World!</div>
+<div *ngIf="msg" style="color: red;">
+  {{msg}}
+</div>
+<div>
+  <mat-form-field appearance="outline" (click)="onClick()">
+    <mat-label>Insert JPEG image</mat-label>
+    <mat-icon matSuffix>image</mat-icon>
+  </mat-form-field>
+  <input id="fileInput" type="file" hidden (change)="onLoadFile($event)">
+</div>
+
+<div id="boxImage" *ngIf="url">
+    <img [src]="url" >
+</div>
+
