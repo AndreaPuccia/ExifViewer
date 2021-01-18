@@ -4,13 +4,16 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MaterialFileInputModule} from 'ngx-material-file-input';
+import {MatButtonModule} from '@angular/material/button';
+import { ImageBoxComponent } from './image-box/image-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -18,8 +21,8 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MaterialFileInputModule,
     MatIconModule,
-    MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
   ],

@@ -12,15 +12,16 @@ export class AppComponent {
   msg;
 
   onLoadFile(event): void {
-    this.url = null;
     const file = event.target.files[0];
-    this.fileName = file.name;
     console.log(file);
     if (!event.target.files[0] || event.target.files[0].length === 0) {
       this.msg = 'You must select an image';
+      this.fileName = null;
     } else if (file.type.match(/image\/jpeg/) == null) {
       this.msg = 'Only jpeg images are supported';
+      this.fileName = null;
     } else {
+      this.fileName = file.name;
       this.msg = null;
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
