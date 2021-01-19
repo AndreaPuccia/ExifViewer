@@ -2,13 +2,15 @@
   {{msg}}
 </div>
 <div>
-  <mat-form-field appearance="outline" (click)="onClick()">
+
+  <mat-form-field appearance="outline" (change)="onLoadFile($event)">
     <mat-label>Insert JPEG image</mat-label>
+    <ngx-mat-file-input></ngx-mat-file-input>
     <mat-icon matSuffix>image</mat-icon>
-    <input matInput [value]="fileName">
   </mat-form-field>
-  <input id="fileInput" type="file" hidden (change)="onLoadFile($event)">
 </div>
 
-<app-image-box *ngIf="url" [url]="url" ></app-image-box>
+{{exifData |async|json}}
+<br>
+<app-image-box *ngIf="url" [url]="url"></app-image-box>
 
