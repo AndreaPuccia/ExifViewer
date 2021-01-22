@@ -8,7 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatButtonModule} from '@angular/material/button';
-import { ImageBoxComponent } from './components/image-box/image-box.component';
+import {ImageBoxComponent} from './components/image-box/image-box.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,7 @@ import { ImageBoxComponent } from './components/image-box/image-box.component';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

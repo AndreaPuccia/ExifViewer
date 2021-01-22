@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 
 @Component({
   selector: 'app-image-box',
@@ -7,6 +7,19 @@ import {Component, Input} from '@angular/core';
 })
 export class ImageBoxComponent {
   @Input() url = null;
+
+  @HostListener('window:keydown', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+    console.log(event);
+    if (event.shiftKey && event.key === 'R') {
+      console.log('Shift + R');
+      this.rotateImage(true);
+    }
+    if (event.shiftKey  && event.key === 'L') {
+      console.log('Shift +  L');
+      this.rotateImage(false);
+    }
+  }
 
   rotateImage(clockWise: boolean): void {
     const offScreenCanvas = document.createElement('canvas');

@@ -1,1 +1,18 @@
+.search-bar {
+  padding: var(--size-l) var(--size-l) 0 var(--size-l);
+
+  & > div {
+    max-width: 500px;
+  }
+}
+
+.data-container {
+  padding: var(--size-l) var(--size-l) 0 var(--size-l);
+  .row,{
+    max-width: 1100px;
+  }
+  .col{
+    max-width: 550px;
+  }
+}
 

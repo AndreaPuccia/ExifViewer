@@ -1,7 +1,22 @@
+.buttons{
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  button{
+    min-width: 0 !important;
+    padding: var(--size-s) var(--size);
+    border-radius: 0;
+  }
+  :first-child{
+    border-radius: 10px 0 0 10px;
+  }
+  :last-child{
+    border-radius: 0 10px 10px 0;
+  }
+}
+
 #boxImage {
   max-width: 512px;
   max-height: 512px;
-  border: red 5px double;
 }
 .prova {
   max-width: 512px;

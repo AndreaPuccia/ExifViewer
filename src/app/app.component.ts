@@ -9,7 +9,6 @@ import {ExifParserService} from './services/exif-parser.service';
 })
 export class AppComponent {
   url;
-  fileName = null;
   msg;
   exifData;
 
@@ -18,15 +17,11 @@ export class AppComponent {
 
   onLoadFile(event): void {
     const file = event.target.files[0];
-    console.log(file);
-    if (!file || file.length === 0) {
+    if (!file) {
       this.msg = 'You must select an image';
-      this.fileName = null;
     } else if (file.type.match(/image\/jpeg/) == null) {
       this.msg = 'Only jpeg images are supported';
-      this.fileName = null;
     } else {
-      this.fileName = file.name;
       this.msg = null;
       const reader = new FileReader();
       reader.onload = () => {

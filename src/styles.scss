@@ -1,0 +1,326 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+
+  --size-s: 4px;
+  --size: 8px;
+  --size-l: 16px;
+  --size-xl: 32px;
+}
+
+.col, body {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  min-height: auto;
+
+  &.center-x {
+    align-items: center;
+  }
+
+  &.center-y {
+    justify-content: center;
+  }
+
+  .gap:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .mini-gap:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.row, .row-flex {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: flex-start;
+  position: relative;
+  min-height: auto;
+
+  &.center-x {
+    justify-content: center;
+  }
+
+  &.center-y {
+    align-items: center;
+  }
+
+  .gap:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  .mini-gap:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex, .row-flex > * {
+  flex: 1;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.flex-1 {
+  flex: 1;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.flex-2 {
+  @extend .flex;
+  flex: 2;
+}
+
+.flex-3 {
+  @extend .flex;
+  flex: 3;
+}
+
+.flex-4 {
+  @extend .flex;
+  flex: 4;
+}
+
+.flex-5 {
+  @extend .flex;
+  flex: 5;
+}
+
+.flex-6 {
+  @extend .flex;
+  flex: 6;
+}
+
+.flex-7 {
+  @extend .flex;
+  flex: 7;
+}
+
+.flex-8 {
+  @extend .flex;
+  flex: 8;
+}
+
+.flex-9 {
+  @extend .flex;
+  flex: 9;
+}
+
+.flex-10 {
+  @extend .flex;
+  flex: 10;
+}
+
+.flex-11 {
+  @extend .flex;
+  flex: 11;
+}
+
+.flex-12 {
+  @extend .flex;
+  flex: 12;
+}
+
+.absolute {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.absolute-size {
+  position: absolute !important;
+  top: var(--size);
+  right: var(--size);
+  left: var(--size);
+  bottom: var(--size);
+}
+
+.absolute-6 {
+  position: absolute !important;
+  top: 6px;
+  right: 6px;
+  left: 6px;
+  bottom: 6px;
+}
+
+.absolute-12 {
+  position: absolute !important;
+  top: 12px;
+  right: 12px;
+  left: 12px;
+  bottom: 12px;
+}
+
+.absolute-24 {
+  position: absolute !important;
+  top: 24px;
+  right: 24px;
+  left: 24px;
+  bottom: 24px;
+}
+
+.flex-auto {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex: auto;
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  position: relative;
+}
+
+
+.page-container {
+  width: 100%;
+}
+
+/********** PADDING **********/
+.no-top-padding {
+  padding-top: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding-s {
+  padding: var(--size-s) !important;
+}
+
+.padding {
+  padding: var(--size) !important;
+}
+
+.padding-l {
+  padding: var(--size-l) !important;
+}
+
+.padding-xl {
+  padding: var(--size-xl) !important;
+}
+
+.padding-y-s {
+  padding-top: var(--size-s) !important;
+  padding-bottom: var(--size-s) !important;
+}
+
+.padding-y {
+  padding-top: var(--size) !important;
+  padding-bottom: var(--size) !important;
+}
+
+.padding-y-l {
+  padding-top: var(--size-l) !important;
+  padding-bottom: var(--size-l) !important;
+}
+
+.padding-y-xl {
+  padding-top: var(--size-xl) !important;
+  padding-bottom: var(--size-xl) !important;
+}
+
+.padding-x-s {
+  padding-right: var(--size-s) !important;
+  padding-left: var(--size-s) !important;
+}
+
+.padding-x {
+  padding-right: var(--size) !important;
+  padding-left: var(--size) !important;
+}
+
+.padding-x-l {
+  padding-right: var(--size-l) !important;
+  padding-left: var(--size-l) !important;
+}
+
+.padding-x-xl {
+  padding-right: var(--size-xl) !important;
+  padding-left: var(--size-xl) !important;
+}
+
+/********** MARGIN **********/
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-top-margin {
+  margin-top: 0 !important;
+}
+
+.margin-s {
+  margin: var(--size-s) !important;
+}
+
+.margin {
+  margin: var(--size) !important;
+}
+
+.margin-l {
+  margin: var(--size-l) !important;
+}
+
+.margin-xl {
+  margin: var(--size-xl) !important;
+}
+
+.margin-y-s {
+  margin-top: var(--size-s) !important;
+  margin-bottom: var(--size-s) !important;
+}
+
+.margin-y {
+  margin-top: var(--size) !important;
+  margin-bottom: var(--size) !important;
+}
+
+.margin-y-l {
+  margin-top: var(--size-l) !important;
+  margin-bottom: var(--size-l) !important;
+}
+
+.margin-y-xl {
+  margin-top: var(--size-xl) !important;
+  margin-bottom: var(--size-xl) !important;
+}
+
+.margin-x-s {
+  margin-left: var(--size-s) !important;
+  margin-right: var(--size-s) !important;
+}
+
+.margin-x {
+  margin-left: var(--size) !important;
+  margin-right: var(--size) !important;
+}
+
+.margin-x-l {
+  margin-left: var(--size-l) !important;
+  margin-right: var(--size-l) !important;
+}
+
+.margin-x-xl {
+  margin-left: var(--size-xl) !important;
+  margin-right: var(--size-xl) !important;
+}

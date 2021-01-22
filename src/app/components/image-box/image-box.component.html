@@ -1,6 +1,22 @@
-<button mat-button color="primary" (click)="rotateImage(false)">AntiOrario</button>
-<button mat-button color="primary" (click)="rotateImage(true)">Orario</button>
+<div class="col center-x padding">
+  <div class="row margin-y-s buttons">
+    <!--    <button mat-button color="primary">-->
+    <!--      <mat-icon>chevron_left</mat-icon>-->
+    <!--    </button>-->
+    <button mat-button color="primary" (click)="rotateImage(false)">
+      <mat-icon>rotate_left</mat-icon>
+    </button>
+    <button mat-button color="primary" (click)="rotateImage(true)">
+      <mat-icon>rotate_right</mat-icon>
+    </button>
 
-<div id="boxImage">
-  <img id="image" class="prova" [src]="url" >
+    <!--    <button mat-button color="primary">-->
+    <!--      <mat-icon>chevron_right</mat-icon>-->
+    <!--    </button>-->
+  </div>
+
+  <div id="boxImage" class="padding-y">
+    <img id="image" class="prova" [src]="url">
+  </div>
+
 </div>

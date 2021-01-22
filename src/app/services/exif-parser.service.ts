@@ -40,9 +40,10 @@ export class ExifParserService {
   checkExifData(value, properties): { label: string, value: string } {
     if (value === undefined) {
       return {label: properties, value: ''};
-    } else if (properties === 'makerNote') {
+    } else if (value.constructor === Uint8Array && value.length > 4) {
+      console.log(value.constructor === Uint8Array);
       const len = value.length;
-      return {label: 'MakerNote', value: len + ' Bytes'};
+      return {label: properties, value: len + ' Bytes'};
     } else {
       return {label: properties, value: value.toString()};
     }

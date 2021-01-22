@@ -1,16 +1,31 @@
 <div *ngIf="msg" style="color: red;">
   {{msg}}
 </div>
-<div>
+  <div class="row center-x flex padding-y-l search-bar">
+    <div class="flex">
+      <div class="row">
+        <h1>EXIF Data Viewer</h1>
+      </div>
+      <div class="row">
+        <mat-form-field class="flex" appearance="outline" (change)="onLoadFile($event)">
+          <mat-label>Insert JPEG image</mat-label>
+          <ngx-mat-file-input></ngx-mat-file-input>
+          <mat-icon matSuffix>image</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row center-x data-container">
+    <div *ngIf="url" class="row center-x flex">
+      <div class="flex-2" style="border: dashed black thick">
+        <app-image-box [url]="url"></app-image-box>
+      </div>
+      <div class="flex-2" style="border: dashed black thick">
+        {{exifData |async|json}}
+      </div>
+    </div>
 
-  <mat-form-field appearance="outline" (change)="onLoadFile($event)">
-    <mat-label>Insert JPEG image</mat-label>
-    <ngx-mat-file-input></ngx-mat-file-input>
-    <mat-icon matSuffix>image</mat-icon>
-  </mat-form-field>
-</div>
+  </div>
 
-{{exifData |async|json}}
-<br>
-<app-image-box *ngIf="url" [url]="url"></app-image-box>
+
 
