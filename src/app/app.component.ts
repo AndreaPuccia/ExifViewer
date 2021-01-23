@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import exifr from 'exifr';
 import {ExifParserService} from './services/exif-parser.service';
 
@@ -9,20 +10,27 @@ import {ExifParserService} from './services/exif-parser.service';
 })
 export class AppComponent {
   url;
-  msg;
   exifData;
 
-  constructor(private parser: ExifParserService) {
+  constructor(private parser: ExifParserService, private snackBar: MatSnackBar) {
+  }
+
+  openSnackbar(message: string): void {
+    this.snackBar.open(message, null, {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: 'error'
+    });
   }
 
   onLoadFile(event): void {
     const file = event.target.files[0];
     if (!file) {
-      this.msg = 'You must select an image';
+      this.openSnackbar('You must select an image');
     } else if (file.type.match(/image\/jpeg/) == null) {
-      this.msg = 'Only jpeg images are supported';
+      this.openSnackbar('Only jpeg images are supported');
     } else {
-      this.msg = null;
       const reader = new FileReader();
       reader.onload = () => {
         this.url = reader.result;

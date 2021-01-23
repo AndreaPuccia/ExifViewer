@@ -9,11 +9,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatButtonModule} from '@angular/material/button';
 import {ImageBoxComponent} from './components/image-box/image-box.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { ExifDataComponent } from './components/exif-data/exif-data/exif-data.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageBoxComponent
+    ImageBoxComponent,
+    ExifDataComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,10 @@ import {ImageBoxComponent} from './components/image-box/image-box.component';
     MaterialFileInputModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule,
+    MatExpansionModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

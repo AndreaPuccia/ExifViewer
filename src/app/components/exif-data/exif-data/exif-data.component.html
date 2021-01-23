@@ -1,0 +1,33 @@
+<div class="col center-x padding-l">
+  <mat-accordion *ngIf="(exifData|async) !=null">
+      <mat-expansion-panel class="margin-y-l " *ngFor="let section of exifData |async">
+        <mat-expansion-panel-header class="padding-y">
+          <mat-panel-title>
+            <h2>{{section.title}}</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="tags">
+          <div class="property padding-x" *ngFor="let tag of section.vectorData">
+            <div>
+              <div class="padding-y-s label">{{tag.label}}</div>
+              <div class="padding-y-s value" *ngIf="tag.label!=='Coordinate'">
+                {{tag.value}}&nbsp;
+              </div>
+              <div class="padding-y-s value" *ngIf="tag.label==='Coordinate'">
+                <a href="https://www.google.com/maps/search/?api=1&query={{tag.value}}" target="_blank">
+                  GoogleMaps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+  <div *ngIf="(exifData|async) ==null" class="no-data padding-xl row flex center-x">
+    <div class="row center-y">
+      ExifData not present
+      <mat-icon color="accent" class="padding-x-s">error</mat-icon>
+    </div>
+  </div>
+
+</div>

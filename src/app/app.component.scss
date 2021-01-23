@@ -1,5 +1,6 @@
 .search-bar {
   padding: var(--size-l) var(--size-l) 0 var(--size-l);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
   & > div {
     max-width: 500px;

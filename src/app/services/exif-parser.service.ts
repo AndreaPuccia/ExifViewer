@@ -10,8 +10,8 @@ export class ExifParserService {
 
     const properties = Object.getOwnPropertyNames(input)
       .filter((p) => p !== 'latitude' && p !== 'longitude');
-    const exif = new Section('Dati EXIF');
-    const gps = new Section('Dati GPS');
+    const exif = new Section('EXIF Data');
+    const gps = new Section('GPS Data');
     properties.forEach((p) => {
       if (!p.includes('GPS')) {
         exif.vectorData.push(this.checkExifData(input[p], p));
@@ -23,7 +23,7 @@ export class ExifParserService {
     if (cord != null) {
       gps.vectorData.push(cord);
     }
-    return [exif, gps];
+    return gps.vectorData.length > 0 ? [exif, gps] : [exif];
   }
 
   getCoordinate(data): { label: string, value: string } {

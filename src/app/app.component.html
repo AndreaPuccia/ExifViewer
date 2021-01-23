@@ -10,18 +10,18 @@
         <mat-form-field class="flex" appearance="outline" (change)="onLoadFile($event)">
           <mat-label>Insert JPEG image</mat-label>
           <ngx-mat-file-input></ngx-mat-file-input>
-          <mat-icon matSuffix>image</mat-icon>
+          <mat-icon color="primary" matSuffix>image</mat-icon>
         </mat-form-field>
       </div>
     </div>
   </div>
   <div class="row center-x data-container">
     <div *ngIf="url" class="row center-x flex">
-      <div class="flex-2" style="border: dashed black thick">
+      <div class="flex-2" >
         <app-image-box [url]="url"></app-image-box>
       </div>
-      <div class="flex-2" style="border: dashed black thick">
-        {{exifData |async|json}}
+      <div class="flex-2" >
+        <app-exif-data [exifData]="exifData"></app-exif-data>
       </div>
     </div>
 
