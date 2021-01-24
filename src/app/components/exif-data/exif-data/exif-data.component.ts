@@ -1,19 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-exif-data',
   templateUrl: './exif-data.component.html',
   styleUrls: ['./exif-data.component.scss']
 })
-export class ExifDataComponent implements OnInit{
+export class ExifDataComponent {
   @Input() exifData;
 
   constructor() {
   }
-
-  ngOnInit(): void {
-    console.log(this.exifData);
-  }
-
-
 }

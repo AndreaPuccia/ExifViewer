@@ -1,31 +1,27 @@
-<div *ngIf="msg" style="color: red;">
-  {{msg}}
+<div class="row center-x padding-y-l search-bar">
+  <div class="flex">
+    <div class="row">
+      <h1>EXIF Data Viewer</h1>
+    </div>
+    <div class="row">
+      <mat-form-field class="flex" appearance="outline" (change)="onLoadFile($event)">
+        <mat-label>Insert JPEG image</mat-label>
+        <ngx-mat-file-input></ngx-mat-file-input>
+        <mat-icon color="primary" matSuffix>image</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
 </div>
-  <div class="row center-x flex padding-y-l search-bar">
-    <div class="flex">
-      <div class="row">
-        <h1>EXIF Data Viewer</h1>
-      </div>
-      <div class="row">
-        <mat-form-field class="flex" appearance="outline" (change)="onLoadFile($event)">
-          <mat-label>Insert JPEG image</mat-label>
-          <ngx-mat-file-input></ngx-mat-file-input>
-          <mat-icon color="primary" matSuffix>image</mat-icon>
-        </mat-form-field>
-      </div>
+<div class="row center-x data-container">
+  <div *ngIf="url" class="center-x" [className]="xSmall?'col':'row'">
+    <div class="flex-2">
+      <app-image-box [url]="url"></app-image-box>
+    </div>
+    <div class="flex-2">
+      <app-exif-data [exifData]="exifData"></app-exif-data>
     </div>
   </div>
-  <div class="row center-x data-container">
-    <div *ngIf="url" class="row center-x flex">
-      <div class="flex-2" >
-        <app-image-box [url]="url"></app-image-box>
-      </div>
-      <div class="flex-2" >
-        <app-exif-data [exifData]="exifData"></app-exif-data>
-      </div>
-    </div>
-
-  </div>
+</div>
 
 
 

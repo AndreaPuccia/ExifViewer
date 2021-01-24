@@ -1,18 +1,29 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import exifr from 'exifr';
 import {ExifParserService} from './services/exif-parser.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   url;
   exifData;
+  xSmall: boolean;
 
-  constructor(private parser: ExifParserService, private snackBar: MatSnackBar) {
+  constructor(private parser: ExifParserService, private snackBar: MatSnackBar,
+              public breakpointObserver: BreakpointObserver) {
+  }
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small])
+      .subscribe(state => {
+        this.xSmall = state.matches;
+      });
   }
 
   openSnackbar(message: string): void {

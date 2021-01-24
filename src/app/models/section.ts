@@ -1,9 +1,15 @@
 export class Section {
   title: string;
-  vectorData: { label: string, value: string }[];
+  properties: { label: string, value: string }[];
 
   constructor(title: string) {
     this.title = title;
-    this.vectorData = [];
+    this.properties = [];
+  }
+
+  addProperties(p: { label: string, value: string }): void {
+    if (p) {
+      this.properties.push(p);
+    }
   }
 }

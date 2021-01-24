@@ -8,22 +8,19 @@ export class ExifParserService {
 
   parseData(input): Section[] {
 
-    const properties = Object.getOwnPropertyNames(input)
+    const exifFields = Object.getOwnPropertyNames(input)
       .filter((p) => p !== 'latitude' && p !== 'longitude');
     const exif = new Section('EXIF Data');
     const gps = new Section('GPS Data');
-    properties.forEach((p) => {
+    exifFields.forEach((p) => {
       if (!p.includes('GPS')) {
-        exif.vectorData.push(this.checkExifData(input[p], p));
+        exif.addProperties(this.checkExifData(input[p], p));
       } else {
-        gps.vectorData.push(this.checkGpsData(input[p], p));
+        gps.addProperties(this.checkGpsData(input[p], p));
       }
     });
-    const cord = this.getCoordinate(input);
-    if (cord != null) {
-      gps.vectorData.push(cord);
-    }
-    return gps.vectorData.length > 0 ? [exif, gps] : [exif];
+    gps.addProperties(this.getCoordinate(input));
+    return gps.properties.length > 0 ? [exif, gps] : [exif];
   }
 
   getCoordinate(data): { label: string, value: string } {
@@ -41,7 +38,6 @@ export class ExifParserService {
     if (value === undefined) {
       return {label: properties, value: ''};
     } else if (value.constructor === Uint8Array && value.length > 4) {
-      console.log(value.constructor === Uint8Array);
       const len = value.length;
       return {label: properties, value: len + ' Bytes'};
     } else {
