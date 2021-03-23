@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   url;
   exifData;
   xSmall: boolean;
+  load = true;
 
   constructor(private parser: ExifParserService, private snackBar: MatSnackBar,
               public breakpointObserver: BreakpointObserver) {
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
   }
 
   onLoadFile(event): void {
+    this.load = false;
     const file = event.target.files[0];
     if (!file) {
       this.openSnackbar('You must select an image');
@@ -48,12 +50,13 @@ export class AppComponent implements OnInit {
       };
       reader.readAsDataURL(file);
 
-      this.exifData = exifr.parse(file, {makerNote: true}).then(output => {
+      this.exifData = exifr.parse(file).then(output => {
+        let response = null;
         if (output !== undefined) {
-          return this.parser.parseData(output);
-        } else {
-          return null;
+          response = this.parser.parseData(output);
         }
+        this.load = true;
+        return response;
       });
     }
   }

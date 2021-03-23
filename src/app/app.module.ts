@@ -13,6 +13,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { ExifDataComponent } from './components/exif-data/exif-data/exif-data.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

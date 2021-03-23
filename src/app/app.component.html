@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<div class="row center-x data-container">
+<div *ngIf="load===true" class="row center-x data-container">
   <div *ngIf="url" class="center-x" [className]="xSmall?'col':'row'">
     <div class="flex-2">
       <app-image-box [url]="url"></app-image-box>
@@ -22,6 +22,10 @@
     </div>
   </div>
 </div>
-
+<ng-container *ngIf="load===false">
+  <div class="row flex center padding-y-xl">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-container>
 
 

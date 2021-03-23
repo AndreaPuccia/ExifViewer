@@ -1,20 +1,12 @@
 <div class="col center-x padding">
   <div class="row margin-y-s buttons">
-    <!--    <button mat-button color="primary">-->
-    <!--      <mat-icon>chevron_left</mat-icon>-->
-    <!--    </button>-->
     <button mat-button matTooltipPosition="above" matTooltip="Rotate Left (Shift+L)" color="primary" (click)="rotateImage(false)">
       <mat-icon>rotate_left</mat-icon>
     </button>
     <button mat-button matTooltipPosition="above" matTooltip="Rotate Right (Shift+R)" color="primary" (click)="rotateImage(true)">
       <mat-icon>rotate_right</mat-icon>
     </button>
-
-    <!--    <button mat-button color="primary">-->
-    <!--      <mat-icon>chevron_right</mat-icon>-->
-    <!--    </button>-->
   </div>
-
   <div  class="padding-y image-container">
     <img [src]="url">
   </div>

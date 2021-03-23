@@ -24,7 +24,7 @@ export class ExifParserService {
   }
 
   getCoordinate(data): { label: string, value: string } {
-    if (Object.getOwnPropertyNames(data).includes('latitude')) {
+    if (Object.getOwnPropertyNames(data).includes('latitude') && Object.getOwnPropertyNames(data).includes('longitude')) {
       const lat = data.latitude.toString();
       const log = data.longitude.toString();
       return {label: 'Coordinate', value: lat + ',' + log};
@@ -36,23 +36,20 @@ export class ExifParserService {
 
   checkExifData(value, properties): { label: string, value: string } {
     if (value === undefined) {
-      return {label: properties, value: ''};
-    } else if (value.constructor === Uint8Array && value.length > 4) {
-      const len = value.length;
-      return {label: properties, value: len + ' Bytes'};
-    } else {
-      return {label: properties, value: value.toString()};
+      return null;
+    }else {
+      return {label: properties, value: value.toString().replace(/,/g, ', ')};
     }
   }
 
   checkGpsData(value, properties): { label: string, value: string } {
     if (value === undefined) {
-      return {label: properties, value: ''};
+      return null;
     } else if (properties === 'GPSLatitude' || properties === 'GPSLongitude') {
       const val = value[0] + '° ' + value[1] + '\' ' + value[2] + '\'\'';
       return {label: properties, value: val};
     } else {
-      return {label: properties, value: value.toString()};
+      return {label: properties, value: value.toString().replace(/,/g, ', ')};
     }
   }
 }
