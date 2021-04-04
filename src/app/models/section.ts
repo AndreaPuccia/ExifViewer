@@ -12,4 +12,8 @@ export class Section {
       this.properties.push(p);
     }
   }
+
+  isEmpty(): boolean {
+    return this.properties.length <= 0;
+  }
 }

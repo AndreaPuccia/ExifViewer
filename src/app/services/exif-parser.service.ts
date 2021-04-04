@@ -20,7 +20,8 @@ export class ExifParserService {
       }
     });
     gps.addProperties(this.getCoordinate(input));
-    return gps.properties.length > 0 ? [exif, gps] : [exif];
+    const result = [exif, gps].filter(e => !e.isEmpty());
+    return result.length ? result : null;
   }
 
   getCoordinate(data): { label: string, value: string } {
