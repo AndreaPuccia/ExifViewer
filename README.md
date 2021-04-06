@@ -43,3 +43,6 @@ eseguire l'applicazione con il comando `npm start` visualizzandola all'indirizzo
 
 L'applicazione è disponibile anche all'indirizzo
 [http://andreawebsites.altervista.org](http://andreawebsites.altervista.org)
+
+Nella cartella ImmaginiEXIFViewer sono presenti alcune immagini con le quali
+poter testare l'applicazione.
