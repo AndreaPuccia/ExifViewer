@@ -7,7 +7,7 @@ import {Section} from '../models/section';
 export class ExifParserService {
 
   parseData(input): Section[] {
-
+    // Le proprietà EXIF latitude e longitude sono trattate separatamente per costruire parte del link a google maps
     const exifFields = Object.getOwnPropertyNames(input)
       .filter((p) => p !== 'latitude' && p !== 'longitude');
     const exif = new Section('EXIF Data');
@@ -38,7 +38,7 @@ export class ExifParserService {
   checkExifData(value, properties): { label: string, value: string } {
     if (value === undefined) {
       return null;
-    }else {
+    } else {
       return {label: properties, value: value.toString().replace(/,/g, ', ')};
     }
   }
