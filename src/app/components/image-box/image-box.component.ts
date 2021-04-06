@@ -10,13 +10,10 @@ export class ImageBoxComponent {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    console.log(event);
     if (event.shiftKey && event.key === 'R') {
-      console.log('Shift + R');
       this.rotateImage(true);
     }
     if (event.shiftKey  && event.key === 'L') {
-      console.log('Shift +  L');
       this.rotateImage(false);
     }
   }

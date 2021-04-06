@@ -37,27 +37,28 @@ export class AppComponent implements OnInit {
   }
 
   onLoadFile(event): void {
-    this.load = false;
     const file = event.target.files[0];
-    if (!file) {
-      this.openSnackbar('You must select an image');
-    } else if (file.type.match(/image\/jpeg/) == null) {
-      this.openSnackbar('Only jpeg images are supported');
-    } else {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.url = reader.result;
-      };
-      reader.readAsDataURL(file);
-
-      this.exifData = exifr.parse(file).then(output => {
-        let response = null;
-        if (output !== undefined) {
-          response = this.parser.parseData(output);
-        }
+    if (file) {
+      this.load = false;
+      if (file.type.match(/image\/jpeg/) == null) {
+        this.openSnackbar('Only jpeg images are supported');
         this.load = true;
-        return response;
-      });
+      } else {
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.url = reader.result;
+        };
+        reader.readAsDataURL(file);
+
+        this.exifData = exifr.parse(file).then(output => {
+          let response = null;
+          if (output !== undefined) {
+            response = this.parser.parseData(output);
+          }
+          this.load = true;
+          return response;
+        });
+      }
     }
   }
 }
