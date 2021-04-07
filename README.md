@@ -36,8 +36,9 @@ la libreria **exifr** in un elenco di _section_ le quali poi possono essere inte
 componente exif-data in modo da mostrarli all'utente.
 
 ## Esecuzione
+Per eseguire in locale l'applicazione sono necessari Node.js e npm.
 Una volta scaricato il progetto per prima cosa è necessario installare le dipendenze
-attraverso il comando `npm install`. Una volta completata l'istallazione è possibile 
+attraverso il comando `npm install`. Completata l'istallazione è possibile 
 eseguire l'applicazione con il comando `npm start` visualizzandola all'indirizzo
 [ http://localhost:4200](http://localhost:4200).
 
